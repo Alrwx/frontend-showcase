@@ -1,0 +1,64 @@
+/*
+ * ============================================================================
+ * ProjectCard.module.css — STYLES FOR ONE PROJECT CARD
+ * ============================================================================
+ */
+
+/* The card. It's an <a> link, so it needs display: flex/block to behave like a box. */
+.card {
+  /* Flexbox column: title, description, tags stacked top to bottom. */
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+
+  padding: var(--space-md);
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  /* Animate these two properties smoothly when they change on hover. */
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
+}
+
+/* On hover, lift the card up a little and add a shadow. */
+.card:hover {
+  /* translateY(-4px) moves the card 4px UP without affecting the layout around it. */
+  transform: translateY(-4px);
+  /* box-shadow: x-offset  y-offset  blur  color */
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+/* Project name. */
+.title {
+  font-size: 1.15rem;
+}
+
+/* Short description. */
+.description {
+  color: var(--color-text-muted);
+  /* flex-grow: 1 makes the description take up any extra space, which pushes
+     the tags to the BOTTOM of the card. That keeps tags lined up across cards
+     even if the descriptions are different lengths. */
+  flex-grow: 1;
+}
+
+/* The row of tags. */
+.tags {
+  list-style: none; /* no bullet points */
+  display: flex;
+  flex-wrap: wrap; /* if there are many tags, wrap onto a new line */
+  gap: var(--space-xs);
+  margin-top: var(--space-xs);
+}
+
+/* A single tag "pill". */
+.tag {
+  font-size: 0.8rem;
+  padding: 0.2rem 0.6rem;
+  /* A huge border-radius on a short box makes fully rounded "pill" ends. */
+  border-radius: 999px;
+  background: var(--color-bg-alt);
+  color: var(--color-accent);
+  font-weight: 500;
+}

@@ -1,0 +1,53 @@
+/*
+ * ============================================================================
+ * ExperienceCard.module.css — STYLES FOR ONE EXPERIENCE CARD
+ * ============================================================================
+ *
+ * Change something here and EVERY experience card updates, because they
+ * all share the same component and the same styles.
+ */
+
+/* The card box itself. */
+.card {
+  padding: var(--space-md);
+  border: 1px solid var(--color-border); /* thin outline: width, style, color */
+  border-radius: var(--radius);
+  background: var(--color-bg);
+  /* A colored stripe on the left edge as an accent. */
+  border-left: 4px solid var(--color-accent);
+}
+
+/* Top row of the card: title on the left, dates on the right. */
+.header {
+  display: flex;
+  justify-content: space-between; /* push the two sides apart */
+  align-items: flex-start; /* line them up at the top */
+  gap: var(--space-sm);
+  /* flex-wrap: if there isn't enough room (phones), let the dates move down
+     to the next line instead of squishing everything. */
+  flex-wrap: wrap;
+  margin-bottom: var(--space-xs);
+}
+
+/* Job title. */
+.role {
+  font-size: 1.15rem;
+}
+
+/* Company / club name. */
+.org {
+  color: var(--color-accent);
+  font-weight: 500;
+}
+
+/* "2024 – Present" */
+.dates {
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+  white-space: nowrap; /* never break the dates across two lines */
+}
+
+/* Description paragraph. */
+.description {
+  color: var(--color-text-muted);
+}

@@ -1,0 +1,115 @@
+/*
+ * ============================================================================
+ * globals.css — STYLES THAT APPLY TO THE WHOLE SITE
+ * ============================================================================
+ *
+ * This file is imported once in layout.tsx, so these rules affect EVERY page
+ * and EVERY component.
+ *
+ * Keep this file small. Only put things here that truly belong everywhere:
+ *   1. Design tokens (CSS variables): colors, spacing, sizes
+ *   2. A small "reset" that removes inconsistent browser defaults
+ *   3. Base styles for plain HTML tags (body, a, h1, h2...)
+ *
+ * Styles for a specific component live next to that component in its own
+ * .module.css file (e.g. src/components/Hero/Hero.module.css).
+ */
+
+/* ----------------------------------------------------------------------------
+ * 1. DESIGN TOKENS (CSS VARIABLES)
+ * ----------------------------------------------------------------------------
+ * `:root` means "the very top of the page", so variables defined here can be
+ * used anywhere on the site.
+ *
+ * A CSS variable starts with two dashes: --name: value;
+ * You USE it elsewhere with var(--name), e.g.  color: var(--color-accent);
+ *
+ * WHY THIS MATTERS FOR DESIGNERS:
+ * Change a value here and it updates everywhere it's used. Want a purple
+ * brand color instead of blue? Change --color-accent once and the buttons,
+ * links, and tags all update. Think of these like Figma styles/variables.
+ */
+:root {
+  /* --- Colors --- */
+  --color-bg: #ffffff; /* main page background */
+  --color-bg-alt: #f5f6f8; /* slightly darker background for alternating sections & cards */
+  --color-text: #1a1a1a; /* main text color (near-black is softer than pure #000) */
+  --color-text-muted: #5f6368; /* secondary text, like dates and descriptions */
+  --color-border: #e2e4e8; /* thin lines around cards and under the navbar */
+  --color-accent: #2563eb; /* brand color: buttons, links, highlights */
+  --color-accent-hover: #1d4ed8; /* slightly darker brand color for hover states */
+
+  /* --- Spacing scale ---
+   * Using a fixed scale (instead of random numbers everywhere) keeps the
+   * layout consistent. 1rem = the root font size, which is 16px by default.
+   */
+  --space-xs: 0.5rem; /*  8px */
+  --space-sm: 1rem; /* 16px */
+  --space-md: 1.5rem; /* 24px */
+  --space-lg: 3rem; /* 48px */
+  --space-xl: 5rem; /* 80px */
+
+  /* --- Layout --- */
+  --max-width: 960px; /* content never gets wider than this, even on huge screens */
+  --radius: 12px; /* how rounded the corners of cards and buttons are */
+  --nav-height: 64px; /* height of the navbar (used so sections don't hide under it) */
+}
+
+/* ----------------------------------------------------------------------------
+ * 2. RESET
+ * ----------------------------------------------------------------------------
+ * Browsers add their own default margins and sizing rules, and they don't all
+ * agree. These lines give us a clean, predictable starting point.
+ */
+
+/* `*` means "every element". ::before and ::after are decorative pseudo-elements. */
+*,
+*::before,
+*::after {
+  /* With border-box, `width` INCLUDES padding and border. Without it, adding
+     padding makes an element wider than the width you set, which is confusing. */
+  box-sizing: border-box;
+  margin: 0; /* remove browser default spacing around headings, paragraphs, etc. */
+  padding: 0;
+}
+
+html {
+  /* When you click a nav link like "#about", glide there instead of jumping. */
+  scroll-behavior: smooth;
+  /* The navbar is "sticky" and covers the top of the screen. This tells the
+     browser to stop scrolling a little early so section titles aren't hidden. */
+  scroll-padding-top: var(--nav-height);
+}
+
+/* ----------------------------------------------------------------------------
+ * 3. BASE STYLES
+ * ---------------------------------------------------------------------------- */
+
+body {
+  /* --font-sans is created by next/font in layout.tsx. The fonts after it are
+     fallbacks, used while the main font loads or if it fails. */
+  font-family: var(--font-sans), system-ui, sans-serif;
+  background: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.6; /* space between lines of text; 1.5–1.7 is comfortable to read */
+}
+
+/* Remove the default underline and blue/purple color from all links.
+   Components decide how their own links look. */
+a {
+  color: inherit; /* "inherit" = use the same color as the parent element */
+  text-decoration: none;
+}
+
+/* Images never overflow their container. */
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Headings: tighter line height than body text looks better at large sizes. */
+h1,
+h2,
+h3 {
+  line-height: 1.2;
+}

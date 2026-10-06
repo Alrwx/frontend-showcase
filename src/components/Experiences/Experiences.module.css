@@ -1,0 +1,34 @@
+/*
+ * ============================================================================
+ * Experiences.module.css — STYLES FOR THE EXPERIENCE SECTION LAYOUT
+ * ============================================================================
+ *
+ * This file only styles the SECTION (background, heading, spacing between
+ * cards). The look of each individual card is in ExperienceCard.module.css.
+ */
+
+/* The full-width section (white background, the default). */
+.experiences {
+  padding: var(--space-xl) var(--space-md);
+}
+
+/* Centered content column. */
+.inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+/* "Experience" heading. */
+.heading {
+  font-size: 2rem;
+  margin-bottom: var(--space-lg);
+}
+
+/* The stack of cards. */
+.list {
+  /* Flexbox with flex-direction: column stacks the cards vertically.
+     `gap` adds equal space between each card (no margins needed!). */
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}

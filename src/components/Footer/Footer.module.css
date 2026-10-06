@@ -1,0 +1,46 @@
+/*
+ * ============================================================================
+ * Footer.module.css — STYLES FOR THE FOOTER ONLY
+ * ============================================================================
+ */
+
+/* Full-width footer bar with a line on top to separate it from the page. */
+.footer {
+  border-top: 1px solid var(--color-border);
+  padding: var(--space-md);
+}
+
+/* Centered row: copyright on the left, social links on the right. */
+.inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between; /* push the two sides apart */
+  align-items: center;
+  flex-wrap: wrap; /* on narrow screens, let the links drop to a new line */
+  gap: var(--space-sm);
+}
+
+/* "© 2026 Name" */
+.copyright {
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+}
+
+/* The row of social links. */
+.socials {
+  list-style: none; /* no bullet points */
+  display: flex;
+  gap: var(--space-md);
+}
+
+/* Each social link. */
+.link {
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.link:hover {
+  color: var(--color-accent);
+}

@@ -1,0 +1,66 @@
+/*
+ * ============================================================================
+ * About.module.css — STYLES FOR THE ABOUT SECTION ONLY
+ * ============================================================================
+ */
+
+/* The full-width section. A slightly gray background separates it visually
+   from the white sections above and below it. */
+.about {
+  background: var(--color-bg-alt);
+  padding: var(--space-xl) var(--space-md);
+}
+
+/* Centered content column (same pattern used in every section). */
+.inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+/* "About" heading. */
+.heading {
+  font-size: 2rem;
+  margin-bottom: var(--space-lg);
+}
+
+/* Photo + text side by side. */
+.content {
+  display: flex; /* put the photo and bio in a row */
+  align-items: center; /* vertically center them against each other */
+  gap: var(--space-lg); /* space between the photo and the text */
+}
+
+/* The circular placeholder photo. */
+.photo {
+  /* flex-shrink: 0 stops flexbox from squishing the circle when space is tight. */
+  flex-shrink: 0;
+  width: 160px;
+  height: 160px;
+  /* border-radius: 50% turns a square into a perfect circle. */
+  border-radius: 50%;
+  background: var(--color-accent);
+  color: #ffffff;
+  font-size: 3rem;
+  font-weight: 700;
+
+  /* Center the initials inside the circle, both horizontally and vertically. */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* The bio paragraph. */
+.bio {
+  font-size: 1.1rem;
+  color: var(--color-text-muted);
+  max-width: 60ch; /* comfortable reading width */
+}
+
+/* On screens 640px wide or smaller (phones, small tablets), there isn't room
+   for side-by-side, so stack the photo ON TOP of the text instead. */
+@media (max-width: 640px) {
+  .content {
+    flex-direction: column; /* column = stack vertically instead of a row */
+    align-items: flex-start; /* line everything up on the left edge */
+  }
+}

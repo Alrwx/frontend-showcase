@@ -1,0 +1,72 @@
+/*
+ * ============================================================================
+ * Hero.module.css — STYLES FOR THE HERO SECTION ONLY
+ * ============================================================================
+ */
+
+/* The full-width section. */
+.hero {
+  /* Vertical padding (top & bottom) makes the hero feel big and airy.
+     When padding has two values: the first is top/bottom, the second left/right. */
+  padding: var(--space-xl) var(--space-md);
+  /* At least 70% of the screen height. "vh" = viewport (screen) height. */
+  min-height: 70vh;
+
+  /* Flexbox used to center the content vertically within the section. */
+  display: flex;
+  align-items: center;
+}
+
+/* The centered content column. */
+.inner {
+  max-width: var(--max-width);
+  width: 100%;
+  margin: 0 auto; /* center horizontally */
+}
+
+/* "Hi, I'm" */
+.greeting {
+  color: var(--color-accent);
+  font-weight: 600; /* semi-bold */
+  margin-bottom: var(--space-xs); /* small gap before the name */
+}
+
+/* The big name headline. */
+.name {
+  /* clamp(MIN, PREFERRED, MAX) makes the text size RESPONSIVE:
+     - never smaller than 2.5rem (on phones)
+     - never bigger than 4.5rem (on large screens)
+     - in between, 8vw = 8% of the screen width, so it grows with the screen */
+  font-size: clamp(2.5rem, 8vw, 4.5rem);
+  font-weight: 800;
+  /* Negative letter-spacing pulls letters slightly closer: looks better on big text. */
+  letter-spacing: -0.02em;
+  margin-bottom: var(--space-sm);
+}
+
+/* The short description under the name. */
+.tagline {
+  font-size: 1.25rem;
+  color: var(--color-text-muted);
+  /* "ch" = width of the "0" character. Limiting a paragraph to ~45 characters
+     per line makes it much easier to read than one long line. */
+  max-width: 45ch;
+  margin-bottom: var(--space-lg);
+}
+
+/* The call-to-action button. */
+.button {
+  /* <a> tags are "inline" by default, which ignores some padding/size rules.
+     inline-block lets it act like a box while still sitting in a line of text. */
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background: var(--color-accent);
+  color: #ffffff;
+  font-weight: 600;
+  border-radius: var(--radius); /* rounded corners */
+  transition: background 0.2s; /* smooth color change on hover */
+}
+
+.button:hover {
+  background: var(--color-accent-hover);
+}

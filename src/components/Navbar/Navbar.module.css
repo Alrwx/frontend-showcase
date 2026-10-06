@@ -1,0 +1,84 @@
+/*
+ * ============================================================================
+ * Navbar.module.css — STYLES FOR THE NAVBAR ONLY
+ * ============================================================================
+ *
+ * Because this is a ".module.css" file, these class names only apply inside
+ * Navbar.tsx. A `.links` class here won't affect a `.links` class anywhere else.
+ *
+ * In Navbar.tsx, `.header` here is used as className={styles.header}
+ */
+
+/* The outer bar that spans the full width of the screen. */
+.header {
+  /* STICKY: the navbar scrolls normally until it reaches the top of the
+     screen (top: 0), then it "sticks" there while the rest scrolls under it. */
+  position: sticky;
+  top: 0;
+  /* z-index controls what sits on top when things overlap. Higher = on top.
+     This makes sure page content scrolls UNDER the navbar, not over it. */
+  z-index: 10;
+
+  height: var(--nav-height);
+  /* rgba = color with transparency. 255,255,255 is white; 0.85 is 85% opaque. */
+  background: rgba(255, 255, 255, 0.85);
+  /* Blurs whatever is scrolling behind the navbar (a "frosted glass" look). */
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--color-border);
+}
+
+/* The inner row that holds the name and the links. */
+.nav {
+  /* Keep content centered and no wider than --max-width. */
+  max-width: var(--max-width);
+  height: 100%; /* fill the full height of .header */
+  margin: 0 auto; /* "auto" left/right margins center a block horizontally */
+  padding: 0 var(--space-md); /* space on the left and right so text doesn't touch the edges */
+
+  /* FLEXBOX: lays out the children (the name and the list) in a row.
+     - justify-content: space-between -> push them to opposite ends
+     - align-items: center            -> center them vertically
+     Think of it like Auto Layout in Figma. */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-sm); /* minimum space between the name and the links */
+}
+
+/* The name/logo on the left. */
+.logo {
+  font-weight: 700; /* bold. 400 = normal, 700 = bold */
+  font-size: 1.1rem;
+}
+
+/* The list of links on the right. */
+.links {
+  list-style: none; /* remove the bullet points that lists have by default */
+  display: flex; /* put the links in a row instead of stacked */
+  gap: var(--space-md); /* space between each link */
+}
+
+/* Each individual link. */
+.link {
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+  /* Animate the color change over 0.2 seconds instead of switching instantly. */
+  transition: color 0.2s;
+}
+
+/* :hover = when the mouse is over the link. */
+.link:hover {
+  color: var(--color-accent);
+}
+
+/* MEDIA QUERY: rules inside only apply when the condition is true.
+   Here: "when the screen is 480px wide or less" (i.e. phones). */
+@media (max-width: 480px) {
+  .links {
+    gap: var(--space-sm); /* tighter spacing so everything fits */
+  }
+
+  .link {
+    font-size: 0.85rem;
+  }
+}

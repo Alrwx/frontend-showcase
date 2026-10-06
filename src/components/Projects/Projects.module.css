@@ -1,0 +1,43 @@
+/*
+ * ============================================================================
+ * Projects.module.css — STYLES FOR THE PROJECTS SECTION LAYOUT
+ * ============================================================================
+ *
+ * Styles the section and the GRID the cards sit in.
+ * The look of each card is in ProjectCard.module.css.
+ */
+
+/* Full-width section with the gray background (alternates with Experience). */
+.projects {
+  background: var(--color-bg-alt);
+  padding: var(--space-xl) var(--space-md);
+}
+
+/* Centered content column. */
+.inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+/* "Projects" heading. */
+.heading {
+  font-size: 2rem;
+  margin-bottom: var(--space-lg);
+}
+
+/* CSS GRID: lays out the cards in rows AND columns.
+ *
+ * grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)) means:
+ *   "Fit as many columns as you can, where each column is AT LEAST 260px
+ *    wide, and share any leftover space equally (1fr = one fraction)."
+ *
+ * The result is automatically responsive, with no media queries needed:
+ *   - wide screen  -> 3 columns
+ *   - tablet       -> 2 columns
+ *   - phone        -> 1 column
+ */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: var(--space-md); /* space between cards, both across and down */
+}
